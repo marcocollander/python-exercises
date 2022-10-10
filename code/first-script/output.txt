@@ -1,0 +1,10 @@
+Active code page: 1252
+Active code page: 1252
+win32
+0
+0
+2 do potêgi 100 =  1267650600228229401496703205376
+Marco Marco Marco Marco Marco Marco Marco Marco 
+Podaj swoje imiê
+Hello Marek
+Naciœnij klawisz "ENTER", aby zakoñczyæ program

@@ -1,9 +1,18 @@
 # Pierwszy skrypt w Pythonie
+import os
 import sys
+
 print(sys.platform)
-print('2 do potęgi 100 = \n')
-print(2 ** 100)
+print(os.system('chcp'))
+print(os.system('chcp 1252'))
+print('2 do potęgi 100 = ', 2 ** 100)
+# print(2 ** 100)
 
-str = 'Marco'
+strName = 'Marco '
 
-print(str * 8)
+print(strName * 8)
+
+nextInput = input('Podaj swoje imię')
+print('\nHello', nextInput)
+
+input('Naciśnij klawisz "ENTER", aby zakończyć program')
