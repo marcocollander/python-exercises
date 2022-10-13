@@ -63,6 +63,35 @@ dodatkowego implementowania obiektów przed rozpoczęciem rozwiązywania prawdzi
 
 ## Najważniejsze typy danych w Pythonie
 
+Tabela **Przegląd wbudowanych obiektów Pythona**
+
+|Typ obiektu | Przykładowe literały ( tworzenie)|
+|  :-------  |:----------------------------- |
+| Liczby          | 1234, 3.1415, 3 + 4j, 0b111, Decimal(), Fraction() |
+| Łańcuchy znaków | 'napis', John", b'a\x01c', u'sp\xc4m'|
+| Listy | [1, [2, 'trzy'], 4.5], list(range(10)) |
+| Słowniki | {'jedzenie': 'mielonka', 'picie': 'kawa'}, dict(godziny=10)|
+| Krotki | (1, 'mielonka', 4, 'U'), tuple('mielonka'), namedtuple |
+| Pliki | open('eggs.txt'), open(r'C:\ham.bin', 'wb')|
+| Zbiory | set('abc'), {'a', 'b', 'c'} |
+| Inne typy podstawowe | Wartości Boolean, typy, None|
+| Typy jednostek programu | Funkcje, moduły, klasy|
+| Typy powiązane z implementacją | Kod skompilowany, ślady stosu |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 5. Typy liczbowe
 
 W Pythonie dane przybierają formę obiektów — albo wbudowanych obiektów udostępnianych przez język, albo obiektów
