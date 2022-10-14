@@ -110,7 +110,20 @@ kwadratowych tworzy listę, a w klamrowych — słownik.
 W Pythonie nie używamy deklarowania typów, składnia wykonywanego wyrażenia określa typy tworzonych i wykorzystywanych 
 obiektów.
 
-Wyrażenia generujące obiekty, jak te z tabeli 4.1, to właśnie miejsca, z których pochodzą typy obiektów.
+Wyrażenia generujące obiekty, jak te z tabeli, to właśnie miejsca, z których pochodzą typy obiektów.
+
+Kiedy tworzymy obiekt, wiążemy go z określonym zbiorem operacji. Na łańcuchach znaków można wykonywać tylko operacje dostępne dla łańcuchów znaków, a na listach — tylko operacje przeznaczone dla list. Oznacza to, że Python jest językiem z typami dynamicznymi (co znaczy, że automatycznie przechowuje informacje o typach, zamiast wymagać kodu z deklaracją typu), ale jednocześnie jego typy są silne (to znaczy na obiekcie można wykonać tylko te operacje, które są poprawne dla określonego typu).
+
+Najlepszym sposobem na rozpoczęcie czegoś jest… samo rozpoczęcie, zatem czas zabrać się za prawdziwy kod.
+
+## Liczby
+
+ Zbiór podstawowych obiektów Pythona obejmuje typowe rodzaje liczb: *całkowite* (liczby bez części ułamkowej), *zmiennoprzecinkowe* (liczby z częścią po przecinku), a także bardziej egzotyczne typy liczbowe (*liczby zespolone*, *liczby stałoprzecinkowe*, *liczby wymierne* z mianownikiem i licznikiem, a także pełne zbiory).
+
+ Liczby w Pythonie obsługują normalne działania matematyczne. Na przykład znak `+` wykonuje dodawanie, znak `*` mnożenie, natomiast `**` potęgowanie.
+
+ 
+
 
 # 5. Typy liczbowe
 
