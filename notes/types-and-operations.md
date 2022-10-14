@@ -65,32 +65,52 @@ dodatkowego implementowania obiektów przed rozpoczęciem rozwiązywania prawdzi
 
 Tabela **Przegląd wbudowanych obiektów Pythona**
 
-|Typ obiektu | Przykładowe literały ( tworzenie)|
-|  :-------  |:----------------------------- |
-| Liczby          | 1234, 3.1415, 3 + 4j, 0b111, Decimal(), Fraction() |
-| Łańcuchy znaków | 'napis', John", b'a\x01c', u'sp\xc4m'|
-| Listy | [1, [2, 'trzy'], 4.5], list(range(10)) |
-| Słowniki | {'jedzenie': 'mielonka', 'picie': 'kawa'}, dict(godziny=10)|
-| Krotki | (1, 'mielonka', 4, 'U'), tuple('mielonka'), namedtuple |
-| Pliki | open('eggs.txt'), open(r'C:\ham.bin', 'wb')|
-| Zbiory | set('abc'), {'a', 'b', 'c'} |
-| Inne typy podstawowe | Wartości Boolean, typy, None|
-| Typy jednostek programu | Funkcje, moduły, klasy|
-| Typy powiązane z implementacją | Kod skompilowany, ślady stosu |
+| Typ obiektu                    | Przykładowe literały ( tworzenie)                           |
+|:-------------------------------|:------------------------------------------------------------|
+| Liczby                         | 1234, 3.1415, 3 + 4j, 0b111, Decimal(), Fraction()          |
+| Łańcuchy znaków                | 'napis', John", b'a\x01c', u'sp\xc4m'                       |
+| Listy                          | [1, [2, 'trzy'], 4.5], list(range(10))                      |
+| Słowniki                       | {'jedzenie': 'mielonka', 'picie': 'kawa'}, dict(godziny=10) |
+| Krotki                         | (1, 'mielonka', 4, 'U'), tuple('mielonka'), namedtuple      |
+| Pliki                          | open('eggs.txt'), open(r'C:\ham.bin', 'wb')                 |
+| Zbiory                         | set('abc'), {'a', 'b', 'c'}                                 |
+| Inne typy podstawowe           | Wartości Boolean, typy, None                                |
+| Typy jednostek programu        | Funkcje, moduły, klasy                                      |
+| Typy powiązane z implementacją | Kod skompilowany, ślady stosu                               |
 
+Listy i słowniki mają ogromne możliwości reprezentowania danych, które zwalniają programistę z konieczności wykonywania
+większości zadań niezbędnych zazwyczaj do zaimplementowania obsługi kolekcji i wyszukiwania w językach niższego poziomu.
+Listy udostępniają uporządkowane zbiory innych obiektów, natomiast słowniki przechowują obiekty według określonego
+klucza. Zarówno listy, jak i słowniki mogą być zagnieżdżane, mogą rosnąć i kurczyć się na życzenie oraz zawierać
+obiekty dowolnego typu.
 
+Jednostki programów, takie jak funkcje, moduły i klasy, w języku Python są obiektami, tworzonymi za pomocą instrukcji
+oraz wyrażeń takich jak `def, class, import czy lambda`, i można je swobodnie przekazywać w skryptach bądź przechowywać
+w innych obiektach. Python udostępnia również zbiór typów powiązanych z implementacją, takich jak obiekty skompilowanego
+kodu, które są zazwyczaj bardziej przedmiotem zainteresowania programistów tworzących narzędzia niż twórców aplikacji.
 
+Wszystko, co przetwarzamy w programach Pythona, jest takimi czy innymi obiektami. Na przykład, kiedy w Pythonie
+wykonujemy dopasowywanie tekstu do wzorca, tworzymy obiekty wzorców, a gdy skrypty sieciowe, używamy obiektów
+reprezentujących gniazda sieciowe. Te pozostałe typy obiektów tworzone są głównie poprzez importowanie i używanie
+funkcji z modułów bibliotecznych (na przykład `re` dla wzorców tekstu czy `socket` dla gniazd sieciowych) i z reguły
+mają swoje własne, niestandardowe typy zachowania.
 
+Pozostałe typy obiektów z tabeli nazywane są zazwyczaj podstawowymi, ponieważ są one wbudowane w język, co znaczy, że
+istnieje odpowiednia składnia wyrażeń do generowania większości z nich. Na przykład, kiedy uruchomimy następujący kod
+zawierający ciąg znaków ujęty w apostrofy:
 
+```commandline
+>>> 'mielonka'
+```
 
+Z technicznego punktu widzenia wykonujemy wyrażenie z literałem, które generuje i zwraca nowy obiekt typu `string`. W
+Pythonie istnieje specyficzna składnia wyrażenia, która tworzy ten obiekt. Podobnie, wyrażenie umieszczone w nawiasach
+kwadratowych tworzy listę, a w klamrowych — słownik. 
 
+W Pythonie nie używamy deklarowania typów, składnia wykonywanego wyrażenia określa typy tworzonych i wykorzystywanych 
+obiektów.
 
-
-
-
-
-
-
+Wyrażenia generujące obiekty, jak te z tabeli 4.1, to właśnie miejsca, z których pochodzą typy obiektów.
 
 # 5. Typy liczbowe
 
