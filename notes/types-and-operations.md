@@ -34,7 +34,7 @@ każdego użytkownika pragnącego programować w tym języku.
 > takiej formy podziału. W języku Python znacznie mocniej jednoczącym pojęciem są obiekty, i to, co możemy z nimi
 > zrobić.
 
-## Dlaczego korzystamy z typów wbudowanych.
+## Dlaczego korzystamy z typów wbudowanych?
 
 W językach niższego poziomu np. w C, czy C++, programista musi wykonać wiele żmudnych, a zatem podatnych na błędy
 zadań takich jak rozplanowanie pamięci i jej przydziałem czy implementowanie procedur wyszukiwania i dostępu, aby
@@ -105,24 +105,266 @@ zawierający ciąg znaków ujęty w apostrofy:
 
 Z technicznego punktu widzenia wykonujemy wyrażenie z literałem, które generuje i zwraca nowy obiekt typu `string`. W
 Pythonie istnieje specyficzna składnia wyrażenia, która tworzy ten obiekt. Podobnie, wyrażenie umieszczone w nawiasach
-kwadratowych tworzy listę, a w klamrowych — słownik. 
+kwadratowych tworzy listę, a w klamrowych — słownik.
 
-W Pythonie nie używamy deklarowania typów, składnia wykonywanego wyrażenia określa typy tworzonych i wykorzystywanych 
+W Pythonie nie używamy deklarowania typów, składnia wykonywanego wyrażenia określa typy tworzonych i wykorzystywanych
 obiektów.
 
 Wyrażenia generujące obiekty, jak te z tabeli, to właśnie miejsca, z których pochodzą typy obiektów.
 
-Kiedy tworzymy obiekt, wiążemy go z określonym zbiorem operacji. Na łańcuchach znaków można wykonywać tylko operacje dostępne dla łańcuchów znaków, a na listach — tylko operacje przeznaczone dla list. Oznacza to, że Python jest językiem z typami dynamicznymi (co znaczy, że automatycznie przechowuje informacje o typach, zamiast wymagać kodu z deklaracją typu), ale jednocześnie jego typy są silne (to znaczy na obiekcie można wykonać tylko te operacje, które są poprawne dla określonego typu).
+Kiedy tworzymy obiekt, wiążemy go z określonym zbiorem operacji. Na łańcuchach znaków można wykonywać tylko operacje
+dostępne dla łańcuchów znaków, a na listach — tylko operacje przeznaczone dla list. Oznacza to, że Python jest językiem
+z typami dynamicznymi (co znaczy, że automatycznie przechowuje informacje o typach, zamiast wymagać kodu z deklaracją
+typu), ale jednocześnie jego typy są silne (to znaczy na obiekcie można wykonać tylko te operacje, które są poprawne dla
+określonego typu).
 
 Najlepszym sposobem na rozpoczęcie czegoś jest… samo rozpoczęcie, zatem czas zabrać się za prawdziwy kod.
 
 ## Liczby
 
- Zbiór podstawowych obiektów Pythona obejmuje typowe rodzaje liczb: *całkowite* (liczby bez części ułamkowej), *zmiennoprzecinkowe* (liczby z częścią po przecinku), a także bardziej egzotyczne typy liczbowe (*liczby zespolone*, *liczby stałoprzecinkowe*, *liczby wymierne* z mianownikiem i licznikiem, a także pełne zbiory).
+Zbiór podstawowych obiektów Pythona obejmuje typowe rodzaje liczb: *całkowite* (bez części ułamkowej), *
+zmiennoprzecinkowe* (z częścią po przecinku), a także bardziej egzotyczne typy liczbowe (*zespolone*,
+*stałoprzecinkowe*, *wymierne* z mianownikiem i licznikiem, oraz pełne zbiory).
 
- Liczby w Pythonie obsługują normalne działania matematyczne. Na przykład znak `+` wykonuje dodawanie, znak `*` mnożenie, natomiast `**` potęgowanie.
+Liczby w Pythonie obsługują normalne działania matematyczne. Na przykład znak `+` wykonuje dodawanie, a `*` mnożenie,
+natomiast `**` potęgowanie.
 
- 
+```commandline
+>>> 123 + 222
+345
+>>> 1.5 * 4
+6.0
+>>> 2 ** 100
+1267650600228229401496703205376
+>>> len(str(2 ** 10000))
+3011
+>>> 3.1415
+6.283
+```
+
+W Pythonie dostępnych jest kilka przydatnych modułów do obliczeń numerycznych. Moduły są po prostu pakietami dodatkowych
+narzędzi, które musimy zaimportować, aby móc z nich skorzystać.
+
+```commandline
+# Moduł math
+>>>  import math
+>>> math.pi
+3.1415926535897931
+>>> math.sqrt(85)
+9.2195444572928871
+
+# Funkcje trygonometryczne
+# Metoda math.sin()
+>>> sin30 = math.sin(math.radians(30))
+>>> print(round(sin30, 3))
+0.5
+>>> print(type(round(sin30)))
+<class 'int'>
+>>> print(format(sin30, '.3'))
+0.5
+>>> print(type(format(sin30, '.3')))
+<class 'str'>
+print('{:.3}'.format(sin30))
+0.5
+print('{:.3}'.format(sin30))
+0.5
+print(type('{:3}'.format(sin30)))
+<class 'str'>
+
+# Metoda math.cos()
+>>> cos60 = math.cos(math.radians(60)) 
+>>> print(cos60)
+0.5000000000000001
+>>> print(round(cos60, 3))
+0.5
+>>> print(round(cos60, 2))
+0.5
+# Inne metody 
+>>> math.round(4.56789, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: module 'math' has no attribute 'round'
+>>> math.ceil(4.56789, 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: math.ceil() takes exactly one argument (2 given)
+>>> math.ceil(4.56789)
+5
+>>> round(4.5678945)
+5
+>>> round(4.5678945, 2)
+4.57
+```
+
+Moduł `random` pozwala na generowanie liczb losowych, a także takowe wybieranie elementu z listy (umieszczonych w
+nawiasach kwadratowych, czyli uporządkowana kolekcja obiektów)
+
+```commandline
+>>> import random
+>>> random.random()
+0.6292299476946973
+>>> random.random()
+0.4265825082072393
+>>> random.choice([2, 34, 56, 78, 13, 99, 45, 2, 4, 5, 11])
+2
+>>> random.choice([2, 34, 56, 78, 13, 99, 45, 2, 4, 5, 11])
+99
+>>> random.choice([2, 34, 56, 78, 13, 99, 45, 2, 4, 5, 11])
+2
+>>> random.choice([2, 34, 56, 78, 13, 99, 45, 2, 4, 5, 11])
+13
+>>> random.random()*45
+3.3314559389842966
+>>> random.random()*45
+12.450980541107253
+>>> random.random()*45
+17.03755782791286ramath
+>>> math.floor(random.random() * 45)
+25
+>>> math.floor(random.random() * 45)
+8
+>>> math.floor(random.random() * 45)
+32
+for i in range(1, 6):
+...     math.floor(random.random() * 45)
+...
+26
+37
+8
+14
+30
+```
+
+## Łańcuchy znaków
+
+Łańcuchy znaków (ang. *strings*) są wykorzystywane zarówno do przechowywania informacji tekstowych, jak i dowolnych
+kolekcji bajtów. Są przykładem sekwencji — czyli uporządkowanych kolekcji innych obiektów. Sekwencje zachowują
+porządek przechowywanych elementów od lewej do prawej strony. Elementy sekwencji są przechowywane i pobierane według ich
+pozycji względnych. Ściśle mówiąc, łańcuchy znaków są sekwencjami ciągów jednoznakowych; inne, bardziej ogólne typy
+sekwencji obejmują listy i krotki.
+
+### Operacje na sekwencjach
+
+Będąc sekwencjami, łańcuchy znaków obsługują operacje zakładające pozycyjne uporządkowanie elementów.
+
+> Zmiennych Pythona nigdy nie trzeba deklarować z wyprzedzeniem. Zmienna tworzona jest w momencie, kiedy przypisujemy
+> do niej wartość; można do niej przypisać dowolny typ obiektu i zostanie zastąpiona swoją wartością, gdy pojawi się w
+> wyrażeniu.
+
+```commandline
+>>> caption = 'Przykładowy tekst'
+>>> len(caption)
+17
+>>> caption[10]
+'y'
+>>> for i in caption:
+...     print(i)
+...
+P
+r
+z
+y
+k
+ł
+a
+d
+o
+w
+y
+
+t
+e
+k
+s
+t
+>>> caption[-1]
+'t'
+>>> caption[len(caption) - 1]
+'t'
+>>> caption[-2]
+'s'
+>>> caption[len(caption) - 2]
+'s'
+```
+
+Warto zauważyć, że w nawiasach kwadratowych możemy wykorzystać *dowolne wyrażenie*, a nie tylko zakodowany na stałe
+literał liczbowy. W każdym miejscu, w którym Python oczekuje wartości, można użyć literału, zmiennej lub dowolnego
+wyrażenia.
+Sekwencje obsługują również ogólną formę indeksowania znaną jako wycinki (ang. *slice*).
+
+```commandline
+>>> caption = 'inny przykładowy tekst'
+>>> caption[5:16]
+'przykładowy'
+>>> caption[0:4]
+'Inny'
+>>> caption[:4]
+'Inny'
+caption[17:]
+'tekst'
+caption[:-6]
+'Inny przykładowy'
+caption[:]
+'Inny przykładowy tekst'
+```
+
+Ich ogólna forma, X[I:J], oznacza: „zwróć wszystkie znaki z ciągu X od przesunięcia I aż do J, ale bez tego ostatniego
+elementu”. Wynik zwracany jest w postaci nowego obiektu.
+
+Będąc sekwencjami, łańcuchy znaków obsługują również konkatenację (ang. *concatenation*) za pomocą symbolu `+` (czyli
+łączenie dwóch łańcuchów znaków w jeden ciąg), a także powtórzenia (ang. *repetition*), czyli budowanie nowego
+łańcucha znaków poprzez powtórzenie innego:
+
+```commandline
+>>> longCaption = caption + ' do nauki manipulowania ciągami tekstu'
+>>> longCaption
+'Inny przykładowy tekst do nauki manipulowania ciągami tekstu'
+>>> name = 'Marek'
+>>> name * 5
+'MarekMarekMarekMarekMarek'
+```
+
+Znak plus `+` dla różnych obiektów może oznaczać inne operacje — dodawanie dla liczb, a konkatenację dla łańcuchów
+znaków. Jest to właściwość Pythona, którą będziemy nazywali `polimorfizmem` - działanie danej operacji
+uzależnione jest od typu obiektów, na jakich się ją wykonuje.
+
+### Niezmienność
+
+Każda operacja na łańcuchach znaków zdefiniowana jest tak, by w rezultacie zwracać nowy, ponieważ są one w Pythonie
+niezmienne (ang. *immutable*). Nie mogą być zmieniane już po utworzeniu, czyli nie można nadpisywać wartości obiektów
+niezmiennych, ale zawsze jest możliwość stworzenia nowego łańcucha znaków i przypisnie go do tej samej nazwy (zmiennej).
+
+<pre>
+>>> name = 'Marek'
+>>> name[0] = 'J'
+<code style="color:red">
+Traceback (most recent call last):
+  File <span style="color:aqua; text-decoration: underline">"C:\Users\Mark\AppData\Local\Programs\Python\Python310\lib\code.
+py"</span>, 
+line 90,
+in runcode
+    exec(code, self.locals)
+  File "input", line 1, in 
+TypeError: 'str' object does not support item assignment
+</code>
+</pre>
+
+```commandline
+>>> caption = 'Inny przykładowy tekst' 
+>>> caption
+'Inny przykładowy tekst'
+>>> caption = 'Jeszcze inny tekst'
+>>> caption
+'Jeszcze inny tekst'
+```
+
+Każdy obiekt Pythona klasyfikowany jest jako niezmienny (niemodyfikowalny) bądź zmienny (modyfikowalny). Wśród typów
+podstawowych niezmienne są *liczby, łańcuchy znaków oraz krotki*. *Listy, słowniki i zbiory* można dowolnie zmieniać w
+miejscu, podobnie jak większość obiektów, które tworzymy za pomocą klas.
+
+Dane tekstowe można modyfikować w miejscu, jeżeli zamienisz je na listę pojedynczych znaków i połączysz z powrotem bez
+używania separatorów lub użyjesz typu `bytearray`.
+
 
 
 # 5. Typy liczbowe
